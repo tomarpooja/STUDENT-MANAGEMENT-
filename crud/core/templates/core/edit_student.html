@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">Edit Student</h3>
+
+<div class="card-premium p-4 w-75 mx-auto">
+    <form method="post" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="full_name">Full Name</label>
+            <input type="text" name="full_name" id="full_name" class="form-control" value="{{ student.full_name }}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ student.email }}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" class="form-control" value="{{ student.age }}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="course">Course</label>
+            <select name="course" id="course" class="form-control" required>
+                {% for course in courses %}
+                <option value="{{ course.id }}" {% if student.course.id == course.id %}selected{% endif %}>{{ course.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-12 d-flex gap-2 mt-3">
+            <button type="submit" class="btn btn-success btn-premium">Save Changes</button>
+            <a href="{% url 'student_list' %}" class="btn btn-secondary btn-premium">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

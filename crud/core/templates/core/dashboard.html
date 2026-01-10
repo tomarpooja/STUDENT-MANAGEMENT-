@@ -1,0 +1,79 @@
+
+{% extends 'core/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<h3 class="mb-4">Dashboard</h3>
+
+<div class="row g-4">
+
+    <!-- STUDENTS CARD -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card-premium card-blue text-center p-4 position-relative overflow-hidden">
+            <!-- Icon -->
+            <div class="icon bg-blue text-white rounded-circle d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+            <h5 class="mt-3">Total Students</h5>
+            <h2>{{ student_count }}</h2>
+        </div>
+    </div>
+
+    <!-- COURSES CARD -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card-premium card-teal text-center p-4 position-relative overflow-hidden">
+            <!-- Icon -->
+            <div class="icon bg-teal text-white rounded-circle d-flex align-items-center justify-content-center">
+                <i class="fas fa-book fa-2x"></i>
+            </div>
+            <h5 class="mt-3">Total Courses</h5>
+            <h2>{{ course_count }}</h2>
+        </div>
+    </div>
+
+</div>
+
+<style>
+/* ---------- CARD COLORS ---------- */
+.card-blue {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: white;
+}
+
+.card-teal {
+    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+    color: white;
+}
+
+/* ---------- ICON STYLE ---------- */
+.icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    opacity: 0.2;
+}
+
+/* ---------- CARD HOVER EFFECT ---------- */
+.card-premium:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+</style>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{% endblock %}
+
+
+
+
+
+
+
+

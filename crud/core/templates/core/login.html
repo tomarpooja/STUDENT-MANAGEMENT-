@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4 card-premium">
+        <h3 class="text-center mb-3">Login</h3>
+
+        {% for message in messages %}
+            <p class="text-danger text-center">{{ message }}</p>
+        {% endfor %}
+
+        <form method="post">
+            {% csrf_token %}
+            <input class="form-control mb-2" name="username" placeholder="Email" required>
+            <input class="form-control mb-3" type="password" name="password" placeholder="Password" required>
+
+            <button class="btn btn-primary w-100">Login</button>
+            <a href="{% url 'login' %}" class="btn btn-secondary w-100 mt-2">Cancel</a>
+        </form>
+
+        <p class="text-center mt-3">
+            New user? <a href="{% url 'signup' %}">Signup</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+
+
